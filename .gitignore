@@ -1,16 +1,16 @@
 # dependencies
-node_modules
+client/node_modules
+server/node_modules
 
 # logs
 npm-debug.log
 
 # Nuxt build
-.nuxt
+client/.nuxt
 
 # Nuxt generate
-dist
+client/dist
 
 # Intellij Idea
 .idea
-smart-landing.iml
-test-nuxt.iml
+
