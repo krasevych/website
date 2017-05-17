@@ -1,0 +1,37 @@
+@mixin renderFontFace($name, $url, $fWeight: normal) {
+  @font-face {
+    font-family: $name;
+    src: url($url + '.woff2') format('woff2'),
+    url($url + '.woff') format('woff');
+
+    font-weight: $fWeight;
+    font-style: normal;
+  }
+}
+
+@include renderFontFace(icomoon, '/fonts/icomoon/icomoon');
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\f09a";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
