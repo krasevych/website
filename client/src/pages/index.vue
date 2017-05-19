@@ -19,17 +19,6 @@
   import Footer from 'src/components/sections/Footer/Footer.vue';
 
   export default {
-    afterEach() {
-      console.log(888)
-    },
-    mounted() {
-      const { hash } = this.$router.history.current;
-      this.$router.push(hash);
-
-      this.$router.afterEach(function (to, from) {
-        console.log(888, to, from)
-      })
-    },
     components: {
       'kr-home': Home,
       'kr-services': Services,

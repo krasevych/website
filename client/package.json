@@ -1,13 +1,14 @@
 {
-  "name": "smart-landing",
-  "version": "1.0.0",
-  "description": "Nuxt.js project",
+  "name": "website",
+  "version": "1.0.5",
+  "description": "My Website",
   "author": "Roman <krasevych@gmail.c>om>",
   "private": true,
   "dependencies": {
     "bootstrap-vue": "0.15.8",
     "lodash": "^4.17.4",
     "nuxt": "^0.10.6",
+    "smoothscroll": "^0.3.0",
     "vue": "^2.2.6",
     "vue-class-component": "^5.0.1",
     "vue-form": "^4.0.2",

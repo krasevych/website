@@ -5,20 +5,6 @@ module.exports = {
   loading: { color: '#3B8070' },
   css: [{ src: 'src/css/main.scss', lang: 'scss' }],
   plugins: ['plugins/bootstrap', 'plugins/vueForm'],
-  router: {
-    mode: 'history',
-    scrollBehavior(to) {
-      return to.hash ? { selector: to.hash } : { x: 0, y: 0 };
-    },
-    routes: [
-      {
-        path: "/home",
-        component: 'Home',
-        name: "index"
-      }
-    ]
-  },
-
   build: {
     extractCSS: true,
     extend(config, { dev, isClient }) {
