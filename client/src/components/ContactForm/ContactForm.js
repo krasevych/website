@@ -12,7 +12,6 @@ class ContactForm extends Vue {
   };
 
   onSubmit() {
-    console.log(111, this.model, this.formstate);
     this.$forceUpdate();
   }
 }

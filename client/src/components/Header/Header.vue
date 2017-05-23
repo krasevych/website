@@ -10,7 +10,10 @@
       )
         kr-logo
         b-nav-toggle(target="nav_collapse")
-        b-collapse#nav_collapse.nav-collapse(is-nav)
+        b-collapse#nav_collapse.nav-collapse(
+        is-nav
+        v-if="isNavigation"
+        )
           kr-navigation(:items="navItems")
 </template>
 
