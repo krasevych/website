@@ -13,51 +13,48 @@
             @submit.prevent="onSubmit",
             role="form",
             )
-              .form-group.control-group
-                .controls
-                  validate
-                    input.form-control.form-control-lg(
-                    required,
-                    autocomplete="off",
-                    v-model="model.email",
-                    name="email",
-                    type="email",
-                    placeholder="Email",
-                    data-validation-required-message="Please enter your email address.",
-                    aria-invalid="false",
-                    )
 
-                    field-messages(
-                    name="email",
-                    show="$touched || $submitted",
-                    )
-                      kr-input-error-message(slot="required") Email is required
-                      kr-input-error-message(slot="email") Email is invalid
+              validate.controls
+                input.form-control.form-control-lg(
+                required,
+                autocomplete="off",
+                v-model="model.email",
+                name="email",
+                type="email",
+                placeholder="Email",
+                data-validation-required-message="Please enter your email address.",
+                aria-invalid="false",
+                )
 
-              .form-group.control-group
-                .controls
-                  validate
-                    input.form-control.form-control-lg(
-                    required,
-                    autocomplete="off",
-                    v-model="model.password",
-                    name="password",
-                    type="password",
-                    placeholder="Password",
-                    data-validation-required-message="Please enter your password.",
-                    aria-invalid="false",
-                    )
+                field-messages(
+                name="email",
+                show="$touched || $submitted",
+                )
+                  kr-input-error-message(slot="required") Email is required
+                  kr-input-error-message(slot="email") Email is invalid
 
-                    field-messages(
-                    name="email",
-                    show="$touched || $submitted",
-                    )
-                      kr-input-error-message(slot="required") Password is required
+              validate.controls
+                input.form-control.form-control-lg(
+                required,
+                autocomplete="off",
+                v-model="model.password",
+                name="password",
+                type="password",
+                placeholder="Password",
+                data-validation-required-message="Please enter your password.",
+                aria-invalid="false",
+                )
 
-                p.text-right
-                  router-link.text-info(to="change") Change password?
+                field-messages(
+                name="email",
+                show="$touched || $submitted",
+                )
+                  kr-input-error-message(slot="required") Password is required
 
-              button.btn.btn-lg.btn-primary.pull-xs-right(type="submit") Sign in
+            p.text-right
+              router-link.text-info(to="change") Change password?
+
+            button.btn.btn-lg.btn-primary.pull-xs-right(type="submit") Sign in
 </template>
 
 <style scoped lang="scss">
