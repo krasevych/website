@@ -13,7 +13,7 @@
             @submit.prevent="onSubmit",
             role="form",
             )
-              .form-group
+              .form-group.control-group
                 .controls
                   validate
                     input.form-control.form-control-lg(
@@ -31,10 +31,10 @@
                     name="email",
                     show="$touched || $submitted",
                     )
-                      .error-message(slot="required") Email is required
-                      .error-message(slot="email") Email is invalid
+                      kr-input-error-message(slot="required") Email is required
+                      kr-input-error-message(slot="email") Email is invalid
 
-              .form-group
+              .form-group.control-group
                 .controls
                   validate
                     input.form-control.form-control-lg(
@@ -52,7 +52,7 @@
                     name="email",
                     show="$touched || $submitted",
                     )
-                      .error-message(slot="required") Password is required
+                      kr-input-error-message(slot="required") Password is required
 
                 p.text-right
                   router-link.text-info(to="change") Change password?
@@ -68,11 +68,12 @@
   }
 
   p {
-    margin-top: 10px;
+    margin-top: -15px;
   }
 
   button {
     width: 100%;
+    margin-top: 10px;
   }
 
   .auth, .container, .row {
@@ -85,9 +86,12 @@
     background: rgba(0, 0, 0, 0.5);
   }
 
+  .controls {
+    position: relative;
+    margin-bottom: 28px;
+  }
+
   .content {
     padding: 30px 20px;
   }
 </style>
-
-

@@ -9,7 +9,7 @@
     @submit.prevent="onSubmit",
     role="form",
     )
-      .form-group.control-group
+      .form-group
         .controls
           validate
             input.form-control(
@@ -26,9 +26,9 @@
             name="name",
             show="$touched || $submitted",
             )
-              .error-message(slot="maxlength") maxlength
+              kr-input-error-message(slot="maxlength") maxlength
 
-      .form-group.control-group
+      .form-group
         .controls
           validate
             input.form-control(
@@ -45,10 +45,10 @@
             name="email",
             show="$touched || $submitted",
             )
-              .error-message(slot="required") Email is required
-              .error-message(slot="email") Email is invalid
+              kr-input-error-message(slot="required") Email is required
+              kr-input-error-message(slot="email") Email is invalid
 
-      .form-group.control-group
+      .form-group
         .controls
           validate
             textarea.form-control(
@@ -64,7 +64,7 @@
             name="message",
             show="$touched || $submitted",
             )
-              .error-message(slot="maxlength") Message must be less than 50 characters
+              kr-input-error-message(slot="maxlength") Message must be less than 50 characters
 
       .form-group.row.justify-content-center.button-container
         button.btn.btn-primary(type="submit") Send message
@@ -86,16 +86,6 @@
   textarea.form-control {
     height: 150px;
     resize: none;
-  }
-
-  .error-message {
-    position: absolute;
-    right: 0;
-    top: -22px;
-    margin: 0;
-
-    color: #DB4F58;
-    font-size: 14px;
   }
 
   .controls {
