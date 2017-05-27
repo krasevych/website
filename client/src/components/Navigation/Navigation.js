@@ -1,14 +1,10 @@
 import Vue from 'vue';
 import smoothScroll from 'smoothscroll';
 import Component from 'src/plugins/classComponent';
-import ScrollListener from 'src/components/ScrollListener/ScrollListener.vue';
 
 @Component({
   props: {
     items: Array,
-  },
-  components: {
-    'kr-scroll-listener': ScrollListener,
   },
   watch: {
     currentTab(value) {

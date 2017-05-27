@@ -9,65 +9,59 @@
     @submit.prevent="onSubmit",
     role="form",
     )
-      .form-group.control-group
-        .controls
-          validate
-            input.form-control(
-            v-model="model.name",
-            maxlength="15",
-            name="name",
-            type="text",
-            placeholder="Name",
-            data-validation-required-message="Please enter your name.",
-            aria-invalid="false",
-            )
+      validate.controls
+        input.form-control(
+        v-model="model.name",
+        maxlength="15",
+        name="name",
+        type="text",
+        placeholder="Name",
+        data-validation-required-message="Please enter your name.",
+        aria-invalid="false",
+        )
 
-            field-messages(
-            name="name",
-            show="$touched || $submitted",
-            )
-              .error-message(slot="maxlength") maxlength
+        field-messages(
+        name="name",
+        show="$touched || $submitted",
+        )
+          kr-input-error-message(slot="maxlength") maxlength
 
-      .form-group.control-group
-        .controls
-          validate
-            input.form-control(
-            required,
-            v-model="model.email",
-            name="email",
-            type="email",
-            placeholder="Email",
-            data-validation-required-message="Please enter your email address.",
-            aria-invalid="false",
-            )
+      validate.controls
+        input.form-control(
+        required,
+        v-model="model.email",
+        name="email",
+        type="email",
+        placeholder="Email",
+        data-validation-required-message="Please enter your email address.",
+        aria-invalid="false",
+        )
 
-            field-messages(
-            name="email",
-            show="$touched || $submitted",
-            )
-              .error-message(slot="required") Email is required
-              .error-message(slot="email") Email is invalid
+        field-messages(
+        name="email",
+        show="$touched || $submitted",
+        )
+          kr-input-error-message(slot="required") Email is required
+          kr-input-error-message(slot="email") Email is invalid
 
-      .form-group.control-group
-        .controls
-          validate
-            textarea.form-control(
-            v-model="model.message",
-            name="message",
-            maxlength="300",
-            placeholder="Message",
-            data-validation-required-message="Please enter some message.",
-            aria-invalid="false",
-            )
+      validate.controls
+        textarea.form-control(
+        v-model="model.message",
+        name="message",
+        maxlength="300",
+        placeholder="Message",
+        data-validation-required-message="Please enter some message.",
+        aria-invalid="false",
+        )
 
-            field-messages(
-            name="message",
-            show="$touched || $submitted",
-            )
-              .error-message(slot="maxlength") Message must be less than 50 characters
+        field-messages(
+        name="message",
+        show="$touched || $submitted",
+        )
+          kr-input-error-message(slot="maxlength") Message must be less than 50 characters
 
-      .form-group.row.justify-content-center.button-container
-        button.btn.btn-primary(type="submit") Send message
+    .row.justify-content-center.button-container
+      button.btn.btn-primary(type="submit") Send message
 
 </template>
 
@@ -86,16 +80,6 @@
   textarea.form-control {
     height: 150px;
     resize: none;
-  }
-
-  .error-message {
-    position: absolute;
-    right: 0;
-    top: -22px;
-    margin: 0;
-
-    color: #DB4F58;
-    font-size: 14px;
   }
 
   .controls {

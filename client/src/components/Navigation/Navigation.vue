@@ -1,11 +1,7 @@
 <script src="./Navigation.js"></script>
 
 <template lang="pug">
-  b-nav(
-  is-nav-bar
-  :class="isScrolling && $style.isScrolling",
-  )
-    kr-scroll-listener(@change="isScrolling = !!$event")
+  b-nav(is-nav-bar)
     b-nav-item(
     v-for="item in items",
     @click="currentTab = item.url",
@@ -23,17 +19,10 @@
 
   $delay: .5s;
 
-  .isScrolling .navItem {
-    a {
-      padding: 20px 15px !important;
-      transition: all $delay;
-    }
-  }
-
   .navItem {
     a {
       position: relative;
-      padding: 27px 15px !important;
+      padding: 20px 15px !important;
       color: #fff !important;
       transition: padding $delay;
 

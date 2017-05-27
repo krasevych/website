@@ -5,6 +5,12 @@ import Navigation from 'src/components/Navigation/Navigation.vue';
 import ScrollListener from 'src/components/ScrollListener/ScrollListener.vue';
 
 @Component({
+  props: {
+    isNavigation: {
+      type: Boolean,
+      default: true,
+    },
+  },
   components: {
     'kr-logo': Logo,
     'kr-navigation': Navigation,
@@ -35,10 +41,6 @@ class Header extends Vue {
       url: 'contact',
     },
   ];
-
-  test(){
-    alert(777)
-  }
 }
 
 export default Header;
