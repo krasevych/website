@@ -2,7 +2,7 @@
   "name": "website",
   "version": "1.0.5",
   "description": "My Website",
-  "author": "Roman <krasevych@gmail.c>om>",
+  "author": "Roman <krasevych@gmail.com>",
   "private": true,
   "dependencies": {
     "bootstrap-vue": "0.15.8",

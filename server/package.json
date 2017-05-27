@@ -1,0 +1,29 @@
+{
+  "name": "website-server",
+  "version": "1.0.0",
+  "description": "My Website - Server side",
+  "author": "Roman <krasevych@gmail.com>",
+  "main": "app.js",
+  "repository": "https://github.com/krasevych/website.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./app.babel.js",
+    "dev": "nodemon ./app.babel.js"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-register": "^6.24.1",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "joi": "^10.5.0",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.2",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
