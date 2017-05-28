@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
+
 import config from './configs/config';
 import routes from './routes/index.routes';
 
@@ -26,7 +27,6 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err, req, res, next) => {
-  console.log(111, err.message)
   res.status(err.status || 500);
   res.json({
     message: err.message,
