@@ -7,7 +7,7 @@ function create(req, res, next) {
   });
 
   user.save()
-    .then(savedUser => res.json(savedUser.toObject()))
+    .then(savedUser => res.json(savedUser.toAuthJSON()))
     .catch(e => next(e));
 }
 

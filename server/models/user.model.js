@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     require: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 UserSchema.pre('save', function(next) {
@@ -45,6 +49,12 @@ class User {
 
       cb(null, isMatch);
     });
+  }
+
+  toAuthJSON() {
+    return {
+      email: this.email,
+    };
   }
 }
 UserSchema.loadClass(User);
