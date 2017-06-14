@@ -1,5 +1,12 @@
 import mongoose from 'mongoose';
+import bluebird from 'bluebird';
 import config from './config';
+
+// make bluebird default Promise
+Promise = bluebird; // eslint-disable-line no-global-assign
+
+// plugin bluebird promise in mongoose
+mongoose.Promise = Promise;
 
 // Create the database connection
 mongoose.connect(config.mongo.host);

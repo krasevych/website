@@ -12,14 +12,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     minlength: 6,
     require: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  }
+}, { timestamps: true });
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
   if (!(this.isModified('password') || this.isNew)) {
     return next();
   }
@@ -57,6 +53,7 @@ class User {
     };
   }
 }
+
 UserSchema.loadClass(User);
 
 export default mongoose.model('User', UserSchema);
