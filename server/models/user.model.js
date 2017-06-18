@@ -1,21 +1,26 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
+import config from '../configs/config';
 
-const UserSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    require: true,
-    unique: true,
-    lowercase: true,
+const UserSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+    },
+    password: {
+      type: String,
+      minlength: 6,
+      require: true,
+    },
   },
-  password: {
-    type: String,
-    minlength: 6,
-    require: true,
-  }
-}, { timestamps: true });
+  { timestamps: true },
+);
 
-UserSchema.pre('save', function (next) {
+UserSchema.pre('save', function(next) {
   if (!(this.isModified('password') || this.isNew)) {
     return next();
   }
@@ -37,19 +42,36 @@ UserSchema.pre('save', function (next) {
 });
 
 class User {
-  comparePassword(pw, cb) {
-    bcrypt.compare(pw, this.password, (err, isMatch) => {
-      if (err) {
-        cb(err);
-      }
+  validPassword(pw) {
+    return new Promise((resolve, reject) =>
+      bcrypt.compare(pw, this.password, (err, isMatch) => {
+        if (err || !isMatch) {
+          return reject(err);
+        }
 
-      cb(null, isMatch);
-    });
+        return resolve();
+      }),
+    );
+  }
+
+  generateGWT() {
+    return jwt.sign(
+      {
+        email: this.email,
+      },
+      config.jwtSecret,
+      {
+        expiresIn: '60 days',
+      },
+    );
   }
 
   toAuthJSON() {
     return {
+      id: this._id,
+      createdAt: this.createdAt,
       email: this.email,
+      token: this.generateGWT(),
     };
   }
 }
